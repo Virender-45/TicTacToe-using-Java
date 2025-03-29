@@ -6,11 +6,12 @@ public class TicTacToe {
 	int boardWidth = 600;
 	int boardHeight = 650;	//50px fortext panel
 	
-	JFrame frame = new JFrame();
-	
+	JFrame frame = new JFrame("Tic-Tac-Toe");
 	//Add panel
 	JLabel textLabel = new JLabel();
 	JPanel textPanel = new JPanel();
+	JPanel boardPanel = new JPanel();
+	
 	
 	TicTacToe(){
 		frame.setVisible(true);
@@ -29,6 +30,10 @@ public class TicTacToe {
 		
 		textPanel.setLayout(new BorderLayout());
 		textPanel.add(textLabel);
-		frame.add(textPanel);
+		frame.add(textPanel, BorderLayout.NORTH);
+		
+		boardPanel.setLayout(new GridLayout(3, 3));
+		boardPanel.setBackground(Color.darkGray);
+		frame.add(boardPanel);
 	}
 }
