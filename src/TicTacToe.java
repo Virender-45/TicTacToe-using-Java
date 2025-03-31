@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class TicTacToe {
 	int boardWidth = 600;
-	int boardHeight = 650;	//50px fortext panel
+	int boardHeight = 650;	//50px for text panel
 	
 	JFrame frame = new JFrame("Tic-Tac-Toe");
 	//Add panel
@@ -27,7 +27,7 @@ public class TicTacToe {
 		
 		textLabel.setBackground(Color.darkGray);
 		textLabel.setForeground(Color.white);
-		textLabel.setFont(new Font("Arial{", Font.BOLD, 50));
+		textLabel.setFont(new Font("Arial", Font.BOLD, 50));
 		textLabel.setHorizontalAlignment(JLabel.CENTER);
 		textLabel.setText("Virender");
 		textLabel.setOpaque(true);
@@ -50,7 +50,15 @@ public class TicTacToe {
 				tile.setForeground(Color.white);
 				tile.setFont(new Font("Arial", Font.BOLD, 120));
 				tile.setFocusable(false);
-				tile.setText(currentPlayer);
+//				tile.setText(currentPlayer);
+				
+				tile.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						JButton tile = (JButton) e.getSource();
+						tile.setText(currentPlayer);
+					}
+				});
+
 			}
 		}
 	}
