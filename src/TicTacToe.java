@@ -87,6 +87,20 @@ public class TicTacToe {
 				return;
 			}
 		}
+		
+		//vertical
+		for(int c = 0; c < 3; c++) {
+			if(board[0][c].getText() == "") continue;
+			
+			if(board[0][c].getText() == board[1][c].getText() &&
+					board[1][c].getText() == board[2][c].getText()) {
+				for(int i = 0; i < 3; i++) {
+					setWinner(board[i][c]);
+				}
+				gameOver = true;
+				return;
+			}
+		}
 	}
 	void setWinner(JButton tile) {
 		tile.setForeground(Color.green);
