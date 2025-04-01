@@ -74,6 +74,15 @@ public class TicTacToe {
 		}
 	}
 	void checkWinner() {
-		
+		//horizontal
+		for(int r = 0; r < 3; r++) {
+			if(board[r][0].getText() == "") continue;
+			
+			if(board[r][0].getText() == board[r][1].getText() &&
+					board[r][1].getText() == board[r][2].getText()) {
+				gameOver = true;
+				return;
+			}
+		}
 	}
 }
