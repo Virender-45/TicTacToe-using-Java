@@ -142,6 +142,8 @@ public class TicTacToe {
 		textLabel.setText(currentPlayer + " is the winner!");
 	}
 	void setTie(JButton tile) {
-		
+		tile.setForeground(Color.orange);
+		tile.setBackground(Color.gray);
+		textLabel.setText("Tie!");
 	}
 }
