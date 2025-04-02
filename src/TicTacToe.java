@@ -18,6 +18,7 @@ public class TicTacToe {
 	String currentPlayer = playerX;
 	
 	boolean gameOver = false;
+	int turns = 0;
 	
 	TicTacToe(){
 		frame.setVisible(true);
@@ -60,6 +61,7 @@ public class TicTacToe {
 						JButton tile = (JButton) e.getSource();
 						if(tile.getText() == "") {
 							tile.setText(currentPlayer);
+							turns++;
 							checkWinner();
 							if(!gameOver) {
 								currentPlayer = currentPlayer == playerX ? playerO : playerX;
@@ -123,10 +125,23 @@ public class TicTacToe {
 			gameOver = true;
 			return;
 		}
+		
+		//tie
+		if(turns == 9) {
+			for(int r = 0; r < 3; r++) {
+				for(int c = 0; c < 3; c++) {
+					setTie(board[r][c]);
+				}
+			}
+			gameOver = true;
+		}
 	}
 	void setWinner(JButton tile) {
 		tile.setForeground(Color.green);
 		tile.setBackground(Color.gray);
 		textLabel.setText(currentPlayer + " is the winner!");
+	}
+	void setTie(JButton tile) {
+		
 	}
 }
